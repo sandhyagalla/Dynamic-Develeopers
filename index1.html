@@ -1,0 +1,135 @@
+ <!DOCTYPE html>
+ <html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>medical report simplification Dashboard</title>
+    <style>
+        body{
+            font-family:Arial,sans-serif;
+            font-size:16px;
+            background-color:#f5f7fa;
+            color:#222;
+            padding: 1rem;
+            line-height:1.5;
+        }
+        h1,h2,h3 {
+            color:#004085;
+        }
+        label{
+            font-weight:bold;
+            margin-top:1rem;
+            display:block;
+        }
+        .tooltip{
+            border-bottom:1px dotted #004085;
+            cursor:help;
+            position:relative;
+        }
+        .tooltip:hover::after {
+            content:attr(data-tooltip);
+            position:absolute;
+            background:#004085;
+            color:white;
+            padding:0.5rem;
+            border-radius:4px;
+            white-space:nowrap;
+            bottom:100%;
+            left:50%;
+            transform:translateX(-50%);
+            margin-bottom:0.5rem;
+            font-size:0.9rem;
+            z-index:10;
+        }
+        #loadingindicator{
+            color:#ff9800;
+            font-style:italic;
+            margin: 1rem 0;
+            display:none;
+        }
+        .button-large{
+            font-size:18px;
+            padding:0.6rem 1.2rem;
+            margin-top:1rem;
+            background-color: #007bff;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+        }
+        .button-large:hover{
+            background-color:#0056b3;
+        }
+        .toggle-switch {
+            margin-top: 0.5rem;
+            display:flex;
+            align-items: center;
+        }
+        .toggle-switch input[type="checkbox"]{
+            margin-right: 0.5rem;
+            cursor:pointer;
+            width:20px;
+            height:20px;
+        }
+        .warning{
+            background: color #8d7da8;
+            color:#721c24;
+            border-left:6px solid #f5c6cd;
+            padding:1rem;
+            margin-top:1rem;
+            border-radius:4px;
+        }
+        .info-box{
+            background-color:#d1ecf1 ;
+            border-left:6px solid #bee5eb;
+            color:#0c5460;
+            padding:1rem;
+            border-radius:4px;
+            margin-top:1rem;
+        }
+    </style>
+</head>
+ </html>
+ <h1>upload your medical report or lab results here for personalized,easy to understand explanation.</h1>
+<input
+  type="file"
+  id="upload report"
+  aria-label="upload your medical report"
+  accept=".pdf,.txt,.doc,.docx"
+  />
+  <div id="loadingindicator" role="alert" aria-live="assertive"> Analyzing your report to  convert medical terms into simple language.this may take a moment.....</div>
+  <section aria-label="simplified medical report">
+    <h2>your medical report-simplified & explained</h2>
+    <article>
+        <p>
+            <span class="tooltip" tabindex="0" role="tooltip" data-tooltip="click to learn what this term means in simple language.">Cholesterol</span>:
+            your value is<strong>high</strong>
+            <button aria-describedby="cholhigh"class="button large">why?</button>
+            <div id="cholHigh" hidden>
+                <p>Highcholestrol may increase your risk of heart disease</p>
+             </div>
+            </p>
+            <p><strong>Recommanded next steps based on your results:</strong></p>
+            <ul>
+                <li>Eat a heart-healthy diet.</li>
+                <li>Exerise regularly</li>
+                <li>Take prescribed medications.</li>
+            </ul>
+    </article>
+  </section>
+  <section aria-label="Range interpretation and alerts">
+    <h2>Your result compared to normal range</h2>
+    <div>
+    <small class="tooltip" tabindex="0" role="tooltip" data-tooltip="Green:within normal range |yellow:Borderline|red:outside normal range">color-coded legend</small>
+</div>
+<div aria-live="polite" role="alert" class="warning">
+    this value is higher than the normal range,which may indicate incresed risk for cardiovascular issues
+</div>
+</section>
+<section aria-labul="data trend explanation">
+    <h2>your results over time show this trend </h2>
+    <p>learn what it means for your health.</p>
+</section>
+<section aria-lable="mutlilingual and cultural adaptation">
+    <label for="languageseletor">choose your preferred language explanations </label>
+</section> 
